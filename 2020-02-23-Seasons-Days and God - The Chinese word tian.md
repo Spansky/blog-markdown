@@ -1,5 +1,3 @@
-2020-02-23-Seasons-Days and God - The Chinese word tian
-
 ---
 layout: post
 title:  "Seasons, Days and God - The Chinese word tian"

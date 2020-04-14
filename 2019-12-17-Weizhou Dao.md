@@ -1,5 +1,3 @@
-2019-12-17-Weizhou Dao
-
 ---
 layout: post
 title:  "Weizhou Dao"

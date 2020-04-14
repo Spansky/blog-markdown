@@ -1,5 +1,3 @@
-2020-03-22-Dockerizing my Website - PART 1
-
 ---
 layout: post
 title:  "Dockerizing my Website - PART 1"

@@ -1,5 +1,3 @@
-2020-01-06-A Laughter From The Seas
-
 ---
 layout: post
 title:  "A Laughter From The Seas (Chinese Song)"

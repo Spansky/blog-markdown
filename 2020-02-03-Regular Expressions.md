@@ -1,5 +1,3 @@
-2020-02-03-Regular Expressions
-
 ---
 layout: post
 title:  "Training: Regular Expressions"

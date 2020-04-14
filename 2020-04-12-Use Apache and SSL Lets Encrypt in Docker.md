@@ -1,4 +1,9 @@
-# Use Apache and SSL/Let's Encrypt in Docker
+---
+layout: post
+title:  "Dockerizing my Website - PART 1"
+date:   2020-03-22 00:01:00 +0800
+categories: it
+---
 
 This article is about:
 * setting up an Apache Webserver in an Alpine Linux Docker Container

@@ -1,5 +1,3 @@
-2020-03-07-Playing with APIs: Github Jobs
-
 ---
 layout: post
 title:  "Playing with APIs: Github Jobs"

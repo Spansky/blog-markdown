@@ -1,5 +1,3 @@
-2019-10-15-Timezone Hack for Windows and Outlook
-
 ---
 layout: post
 title:  "Timezone Hack for Windows and Outlook"

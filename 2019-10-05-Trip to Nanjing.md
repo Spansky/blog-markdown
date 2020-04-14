@@ -1,5 +1,3 @@
-2019-10-05-Trip to Nanjing
-
 ---
 layout: post
 title:  "Trip to Nanjing"

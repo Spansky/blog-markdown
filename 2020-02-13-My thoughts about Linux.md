@@ -1,5 +1,3 @@
-2020-02-13-My thoughts about Linux
-
 ---
 layout: post
 title:  "My thoughts about Linux"

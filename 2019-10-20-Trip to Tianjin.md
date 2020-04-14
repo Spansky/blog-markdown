@@ -1,5 +1,3 @@
-2019-10-20-Trip to Tianjin
-
 ---
 layout: post
 title:  "Trip to Tianjin"

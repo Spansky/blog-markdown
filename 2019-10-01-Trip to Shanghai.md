@@ -1,5 +1,3 @@
-2019-10-01-Trip to Shanghai
-
 ---
 layout: post
 title:  "Trip to Shanghai"

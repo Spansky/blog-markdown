@@ -1,5 +1,3 @@
-2019-11-23-Chinesisch lernen mit System
-
 ---
 layout: post
 title:  "Chinesisch lernen mit System"
