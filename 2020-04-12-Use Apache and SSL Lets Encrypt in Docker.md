@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Dockerizing my Website - PART 1"
+title:  "Use Apache and Let's Encrypt (SSL) in Docker"
 date:   2020-03-22 00:01:00 +0800
 categories: it
 ---
@@ -27,11 +27,20 @@ I found [this perfect Article on setting up everything for Nginx](https://www.hu
 ## 2) Temporary Apache
 
 The temporary Apache has the only purpose for exposing a temporary website over http / port 80. This website will be used by the certbot and the triggered ACME-Challenge later. For preparing it you need those files:
-
-
 [Better download the files from github, if you want to get your hands dirty. You will find the latest files there. Feel free to submit pull requests.](https://github.com/Spansky/apache-and-letsencrypt )
 
-<details><summary>index.html (click to see the content)</summary>
+The folder tree should look like this:
+```bash
+├── letsencrypt
+│   ├── docker-compose.yml
+│   ├── Dockerfile
+│   ├── html
+│   │   └── index.html
+│   └── httpd.conf
+...
+```
+
+### Index.html
 
 ```html
 <!DOCTYPE html>
@@ -58,9 +67,9 @@ The temporary Apache has the only purpose for exposing a temporary website over 
 </body>
 </html>
 ```
-</details>
 
-<details><summary>Dockerfile (click to see the content)</summary>
+
+### Dockerfile
 
 ```Dockerfile
 FROM alpine:latest
@@ -70,9 +79,8 @@ RUN apk add --no-cache apache2
 RUN rm -rf /var/www/localhost/cgi-bin/
 CMD exec /usr/sbin/httpd -D FOREGROUND -f /etc/apache2/httpd.conf
 ```
-</details>
 
-<details><summary>Configfile httpd.conf (click to see the content)</summary>
+### Configfile httpd.conf
 
 ```plaintext
 ServerRoot /var/www
@@ -129,9 +137,8 @@ DocumentRoot  "/var/www/localhost/htdocs"
 ErrorLog                                logs/error.log
 LogLevel info
 ```
-</details>
 
-<details><summary>Composefile docker-compose.yml (click to see the content)</summary>
+### Composefile docker-compose.yml
 
 ```plaintext
 version: '3.7'
@@ -149,18 +156,6 @@ services:
 networks:
   docker-network:
     driver: bridge
-```
-</details>
-
-The folder tree should look like this:
-```bash
-├── letsencrypt
-│   ├── docker-compose.yml
-│   ├── Dockerfile
-│   ├── html
-│   │   └── index.html
-│   └── httpd.conf
-...
 ```
 
 For the following commands I assume you run them while beeing in the `./letsencrypt` folder. 
@@ -206,8 +201,7 @@ On the same hierarchy level like the letsencrypt folder I will now create a fold
 
 Whereras the temporary server just had the purpose for getting the certificates, the production server will serve the website. It will run 24/7 and uses HTTPS only. 
 
-### Files
-<details><summary>Dockerfile</summary>
+### Dockerfile
 
 ```
 FROM alpine:latest
@@ -217,8 +211,8 @@ RUN apk add --no-cache apache2-ssl
 RUN rm -rf /var/www/localhost/cgi-bin/
 CMD exec /usr/sbin/httpd -D FOREGROUND -f /etc/apache2/httpd.conf
 ```
-</details>
-<details><summary>docker-compose.yml</summary>
+
+### docker-compose.yml
 
 ```
 version: '3.7'
@@ -244,9 +238,8 @@ networks:
     driver: bridge
 ```
 
-</details>
 
-<details><summary>Httpd.conf</summary>
+### Httpd.conf
 
 ```
 ServerRoot /var/www
@@ -402,8 +395,6 @@ LogLevel info
     </VirtualHost>
 </IfModule>
 ```
-
-</details>
 
 ### Commands
 
